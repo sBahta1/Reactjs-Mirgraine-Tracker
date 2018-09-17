@@ -15,6 +15,11 @@ const Nav = () => (
             Info Page
           </Link>
         </li>
+        <li>
+          <Link to="/daily">
+          Daily Check-in
+          </Link>
+        </li>
       </ul>
     </div>
   </div>
