@@ -11,21 +11,28 @@ const styles = {
 
 class StepSlider extends Component {
   state = {
-    value: 3,
+    mood: 3,
+    hydro: 3,
   };
 
-  handleChange = (event, value) => {
-    this.setState({ value });
-    console.log('slide',value);
+  handleMoodChange = (event, mood) => {
+    this.setState({ mood });
+    console.log('slide mood', mood);
+  };
+  handleHydroChange = (event, hydro) => {
+    this.setState({ hydro });
+    console.log('slide hydro',hydro);
   };
 
   render() {
     const { classes } = this.props;
-    const { value } = this.state;
+   // const { value } = this.state;
 
     return (
       <div className={classes.root}>
-        <Slider value={value} min={0} max={5} step={1} onChange={this.handleChange} />
+        <Slider value={this.state.mood} min={0} max={5} step={1} onChange={this.handleMoodChange} />
+        <Slider value={this.state.hydro} min={0} max={5} step={1} onChange={this.handleHydroChange} />
+        
       </div>
     );
   }
