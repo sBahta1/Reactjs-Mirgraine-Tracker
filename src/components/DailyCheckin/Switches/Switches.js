@@ -9,17 +9,16 @@ class Switches extends Component {
     }
 
     handleMedsChange = (event) => {
-       //console.log(event.target.checked);
-       
-         if (this.state.medication === false) {
-             this.setState({ medication:true })
-         } else {
-             this.setState({ medication: false })
-         }
-       // console.log(this.state);
+        //console.log(event.target.checked);
+        if (this.state.medication === false) {
+            this.setState({ medication: true })
+        } else {
+            this.setState({ medication: false })
+        }
+        // console.log(this.state);
         let action = {
             type: 'SET_MED',
-            payload:event.target.checked
+            payload: event.target.checked
         }
         this.props.dispatch(action);
     }
@@ -30,7 +29,7 @@ class Switches extends Component {
         } else {
             this.setState({ menstruation: false })
         }
-       // console.log(this.state);
+        // console.log(this.state);
         let action = {
             type: 'SET_MENS',
             payload: event.target.checked
