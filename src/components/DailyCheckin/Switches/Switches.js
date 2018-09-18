@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Switch from '@material-ui/core/Switch';
 import Divider from '@material-ui/core/Divider';
-
+import { connect } from 'react-redux';
 class Switches extends Component {
     state = {
         medication: false,
@@ -9,12 +9,19 @@ class Switches extends Component {
     }
 
     handleMedsChange = (event) => {
-        if (this.state.medication === false) {
-            this.setState({ medication: true })
-        } else {
-            this.setState({ medication: false })
+       //console.log(event.target.checked);
+       
+         if (this.state.medication === false) {
+             this.setState({ medication:true })
+         } else {
+             this.setState({ medication: false })
+         }
+       // console.log(this.state);
+        let action = {
+            type: 'SET_MED',
+            payload:event.target.checked
         }
-        console.log(this.state);
+        this.props.dispatch(action);
     }
 
     handleMensChange = (event) => {
@@ -23,7 +30,12 @@ class Switches extends Component {
         } else {
             this.setState({ menstruation: false })
         }
-        console.log(this.state);
+       // console.log(this.state);
+        let action = {
+            type: 'SET_MENS',
+            payload: event.target.checked
+        }
+        this.props.dispatch(action);
     }
 
     render() {
@@ -40,4 +52,4 @@ class Switches extends Component {
         )
     }//end render
 }//end class Switches 
-export default Switches;
+export default connect()(Switches);
