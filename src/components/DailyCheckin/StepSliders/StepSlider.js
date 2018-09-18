@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/lab/Slider';
-
+import { connect } from 'react-redux';
 const styles = {
   root: {
     width: 300,
@@ -11,27 +11,48 @@ const styles = {
 
 class StepSlider extends Component {
   state = {
-    mood: 3,
-    hydro: 3,
-    fitness: 3,
-    nutrition:3,
+    mood: 5,
+    hydro: 5,
+    fitness: 5,
+    nutrition:5,
   };
 
   handleMoodChange = (event, mood) => {
     this.setState({ mood });
+    let action = {
+      type: 'SET_MOOD',
+      payload: this.state.mood
+    };
+    this.props.dispatch(action);
     console.log('slide mood', mood);
+    
   };
   handleHydroChange = (event, hydro) => {
     this.setState({ hydro });
     console.log('slide hydro', hydro, this.state);
+    let action = {
+      type: 'SET_HYDRO',
+      payload: this.state.mood
+    }
+    this.props.dispatch(action);
   };
   handleFitnessChange = (event, fitness) => {
     this.setState({ fitness });
     console.log('slide fitness', fitness);
+    let action = {
+      type: 'SET_FIT',
+      payload: this.state.mood
+    }
+    this.props.dispatch(action);
   };
   handleNutritionChange = (event, nutrition) => {
     this.setState({ nutrition });
     console.log('slide nutrition', nutrition);
+    let action = {
+      type: 'SET_NUTRI',
+      payload: this.state.mood
+    }
+    this.props.dispatch(action);
   };
 
   render() {
@@ -40,10 +61,14 @@ class StepSlider extends Component {
 
     return (
       <div className={classes.root}>
-        <Slider value={this.state.mood} min={0} max={5} step={1} onChange={this.handleMoodChange} />
-        <Slider value={this.state.hydro} min={0} max={5} step={1} onChange={this.handleHydroChange} />
-        <Slider value={this.state.fitness} min={0} max={5} step={1} onChange={this.handleFitnessChange} />
-        <Slider value={this.state.nutrition} min={0} max={5} step={1} onChange={this.handleNutritionChange} />
+        <p>Mood</p>
+        <Slider value={this.state.mood} min={0} max={10} step={1} onChange={this.handleMoodChange} />
+        <p>Hydration</p>
+        <Slider value={this.state.hydro} min={0} max={10} step={1} onChange={this.handleHydroChange} />
+        <p>Fitness</p>
+        <Slider value={this.state.fitness} min={0} max={10} step={1} onChange={this.handleFitnessChange} />
+        <p>Nutrition</p>
+        <Slider value={this.state.nutrition} min={0} max={10} step={1} onChange={this.handleNutritionChange} />
 
       </div>
     );
@@ -53,5 +78,5 @@ class StepSlider extends Component {
 StepSlider.propTypes = {
   classes: PropTypes.object.isRequired,
 };
-
-export default withStyles(styles)(StepSlider);
+const slideWithStyles = withStyles(styles)(StepSlider)
+export default connect()(slideWithStyles);

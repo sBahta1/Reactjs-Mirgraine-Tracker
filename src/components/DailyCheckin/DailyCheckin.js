@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Nav from '../Nav/Nav'
 import Paper from '@material-ui/core/Paper';
-import Slider from '@material-ui/lab/Slider';
+import Button from '@material-ui/core/Button';
 import StepSlider from './StepSliders/StepSlider'
 
 class DailyCheckin extends Component {
     constructor(){
-        super();
+        super();   
+}
+sendCheckin=()=>{
     
 }
-
-
-
     render() {
 
         return (
@@ -21,7 +20,9 @@ class DailyCheckin extends Component {
                 
                 <StepSlider  />
 
-                
+                <Button variant="contained" size="large" color="primary" onClick={this.sendCheckin} >
+                    Submit
+                 </Button>
 
                 <h1>Hello World</h1>
             </Paper>
