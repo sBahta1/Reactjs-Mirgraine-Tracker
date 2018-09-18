@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Nav from '../Nav/Nav'
+import Nav from '../Nav/Nav';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import StepSlider from './StepSliders/StepSlider'
-
+import StepSlider from './StepSliders/StepSlider';
+import Switches from './Switches/Switches';
 class DailyCheckin extends Component {
     constructor(){
         super();   
 }
 sendCheckin=()=>{
-    
+
 }
     render() {
 
@@ -19,7 +19,7 @@ sendCheckin=()=>{
                 <Nav />
                 
                 <StepSlider  />
-
+                <Switches /><br/>
                 <Button variant="contained" size="large" color="primary" onClick={this.sendCheckin} >
                     Submit
                  </Button>

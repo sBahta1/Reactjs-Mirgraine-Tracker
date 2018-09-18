@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/lab/Slider';
 import { connect } from 'react-redux';
+import Divider from '@material-ui/core/Divider';
 const styles = {
   root: {
     width: 300,
@@ -32,7 +33,7 @@ class StepSlider extends Component {
     console.log('slide hydro', hydro, this.state);
     let action = {
       type: 'SET_HYDRO',
-      payload: this.state.mood
+      payload: this.state.hydro
     }
     this.props.dispatch(action);
   };
@@ -41,7 +42,7 @@ class StepSlider extends Component {
     console.log('slide fitness', fitness);
     let action = {
       type: 'SET_FIT',
-      payload: this.state.mood
+      payload: this.state.fitness
     }
     this.props.dispatch(action);
   };
@@ -50,7 +51,7 @@ class StepSlider extends Component {
     console.log('slide nutrition', nutrition);
     let action = {
       type: 'SET_NUTRI',
-      payload: this.state.mood
+      payload: this.state.nutrition
     }
     this.props.dispatch(action);
   };
@@ -63,13 +64,16 @@ class StepSlider extends Component {
       <div className={classes.root}>
         <p>Mood</p>
         <Slider value={this.state.mood} min={0} max={10} step={1} onChange={this.handleMoodChange} />
+        <Divider />
         <p>Hydration</p>
         <Slider value={this.state.hydro} min={0} max={10} step={1} onChange={this.handleHydroChange} />
+        <Divider />
         <p>Fitness</p>
         <Slider value={this.state.fitness} min={0} max={10} step={1} onChange={this.handleFitnessChange} />
+        <Divider />
         <p>Nutrition</p>
         <Slider value={this.state.nutrition} min={0} max={10} step={1} onChange={this.handleNutritionChange} />
-
+        <Divider />
       </div>
     );
   }
