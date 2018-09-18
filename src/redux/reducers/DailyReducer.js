@@ -1,8 +1,8 @@
 const emptyRecord = {
-    mood: 0,
-    hydro: 0,
-    fitness: 0,
-    nutrition: 0,
+    mood: 5,
+    hydro: 5,
+    fitness: 5,
+    nutrition: 5,
     medication:false,
     menstruation:false,
 }
