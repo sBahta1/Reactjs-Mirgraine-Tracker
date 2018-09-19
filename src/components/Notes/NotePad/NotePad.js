@@ -22,6 +22,7 @@ captureNote= (event)=>{
             data: notes
         }).then((response)=>{
             console.log(response);
+            
         }).catch((error)=>{
             console.log('Error POSTing Note',error);
             alert('Unable to Post Note')

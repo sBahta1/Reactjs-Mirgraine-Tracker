@@ -16,8 +16,15 @@ class NoteList extends Component {
 
         return (
             <div >
-                {JSON.stringify(this.props.notes)}
-               <NotesListPanelItem />
+                {/* {JSON.stringify(this.props.notes)} */}
+                {this.props.notes.notesReducer.map((entry,i)=>{
+                    console.log(entry);
+                    return(
+                        <div>
+                 <NotesListPanelItem key={i} entry={entry}/>
+                 </div>
+                    )
+                })}
             </div>
         );
     }
