@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
                        VALUES ($1, $2, $3, $4, $5, $6, $7);`;
         pool.query(queryText, [req.user.id, checkin.mood, checkin.hydro, checkin.fitness, checkin.nutrition, checkin.medication, checkin.menstruation])
             .then((results) => {
-                res.send(results.rows);
+                res.sendStatus(200);
             }).catch((error) => {
                 console.log('Daily Checkin POST Failed', error);
                 res.sendStatus(500);
