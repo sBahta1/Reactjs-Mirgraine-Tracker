@@ -24,6 +24,51 @@ const styles = theme => ({
 });
 
 class RxAddNew extends Component {
+    state = {
+        med: '',
+        sympt: '',
+        dose: '',
+        regim: '',
+    }
+
+    handleDose = (event) => {
+        console.log('Dose: ', event.target.value);
+        let dose = event.target.value
+        let action = {
+            type: 'SET_DOSE',
+            payload: dose
+        }
+        this.props.dispatch(action);
+    };
+    handleMedName = (event) => {
+        console.log('Name: ', event.target.value);
+        let name = event.target.value
+        let action = {
+            type: 'SET_MED_NAME',
+            payload: name
+        }
+        this.props.dispatch(action);
+    }
+
+    handleSymptom = (event) => {
+        console.log('Symptom: ', event.target.value);
+        let symptom = event.target.value
+        let action = {
+            type: 'SET_SYMP',
+            payload: symptom
+        }
+        this.props.dispatch(action);
+    }
+    handleRegiment = (event) => {
+        console.log('Regiment: ', event.target.value);
+        let regiment = event.target.value
+        let action = {
+            type: 'SET_REGI',
+            payload: regiment
+        }
+        this.props.dispatch(action);
+    }
+
     render() {
         const { classes } = this.props;
 
@@ -35,9 +80,10 @@ class RxAddNew extends Component {
                 >
                     <Input
                         placeholder="Medication Name"
-                        inputProps={{ 'aria-label': 'Description', }}
+                        //inputProps={{ 'aria-label': 'Description', }}
+                        onChange={this.handleMedName}
                     />
-                {/* </FormControl>
+                    {/* </FormControl>
                 <FormControl
                     className={classNames(classes.margin, classes.withoutLabel, classes.textField)}
                     aria-describedby="weight-helper-text"
@@ -45,13 +91,18 @@ class RxAddNew extends Component {
                     <Input
                         placeholder="Dosage"
                         endAdornment={<InputAdornment position="end">Mg</InputAdornment>}
-                        inputProps={{ 'aria-label': 'Weight', }}
+                        // inputProps={{ 'aria-label': 'Weight', }}
+                        onChange={this.handleDose}
                     />
                     {/* <FormHelperText id="weight-helper-text">Dosage</FormHelperText> */}
                     <Input
-                        placeholder="Purpose (eg. 'Nausea')"                    
+                        placeholder="Purpose (eg. 'Nausea')"
+                        onChange={this.handleSymptom}
                     />
-                    
+                    <Input
+                        placeholder="Regiment"
+                        onChange={this.handleRegiment}
+                    />
 
                 </FormControl>
             </Paper>
