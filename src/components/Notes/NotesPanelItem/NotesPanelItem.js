@@ -16,10 +16,6 @@ const styles = theme => ({
     flexBasis: '33.33%',
     flexShrink: 0,
   },
-  secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
-    color: theme.palette.text.secondary,
-  },
 });
 
 class NotesPanelItem extends React.Component {
@@ -43,7 +39,6 @@ class NotesPanelItem extends React.Component {
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className={classes.heading}>19 September, 2018</Typography>
           </ExpansionPanelSummary>
-          
           <ExpansionPanelDetails>
             <Typography>
             {this.props.entry.note}

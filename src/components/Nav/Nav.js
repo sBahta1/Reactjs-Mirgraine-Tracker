@@ -1,30 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
 const Nav = () => (
   <div className="navbar">
     <div>
       <ul>
-        <li>
+        <Button>
           <Link to="/user">
             User Home
           </Link>
-        </li>
-        <li>
+      
+        </Button>
+        <Button>
           <Link to="/info">
             Info Page
           </Link>
-        </li>
-        <li>
+        </Button>
+        <Button>
           <Link to="/daily">
           Daily Check-in
           </Link>
-        </li>
-        <li>
+        </Button>
+        <Button>
           <Link to="/notes">
           Notes
           </Link>
-        </li>
+        </Button>
       </ul>
     </div>
   </div>

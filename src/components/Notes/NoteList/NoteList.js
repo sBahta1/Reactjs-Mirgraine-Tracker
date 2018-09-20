@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { stringify } from 'querystring';
 import NotesListPanelItem from '../NotesPanelItem/NotesPanelItem';
-
+import Paper from '@material-ui/core/Paper';
 const mapStateToProps = state => ({
     notes: state.notes
 })
@@ -15,7 +15,7 @@ class NoteList extends Component {
       
 
         return (
-            <div >
+            <Paper >
                 {/* {JSON.stringify(this.props.notes)} */}
                 {this.props.notes.notesReducer.map((entry,i)=>{
                     console.log(entry);
@@ -25,7 +25,7 @@ class NoteList extends Component {
                  </div>
                     )
                 })}
-            </div>
+            </Paper>
         );
     }
 }
