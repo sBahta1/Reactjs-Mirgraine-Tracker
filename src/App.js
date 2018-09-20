@@ -13,6 +13,7 @@ import UserPage from './components/UserPage/UserPage';
 import InfoPage from './components/InfoPage/InfoPage';
 import DailyCheckin from './components/DailyCheckin/DailyCheckin';
 import Notes from './components/Notes/Notes';
+import Rx from './components/Rx/Rx'
 import './styles/main.css';
 
 const App = () => (
@@ -44,6 +45,10 @@ const App = () => (
         <Route
         path="/notes"
         component={Notes}
+        />
+        <Route
+        path="/rx"
+        component={Rx}
         />
         {/* OTHERWISE (no path!) */}
         <Route render={() => <h1>404</h1>} />

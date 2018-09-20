@@ -27,6 +27,11 @@ const Nav = () => (
           Notes
           </Link>
         </Button>
+        <Button>
+          <Link to="/rx">
+          Medications
+          </Link>
+        </Button>
       </ul>
     </div>
   </div>
