@@ -35,14 +35,11 @@ class DailyCheckin extends Component {
         return (
             <Paper>
                 <Nav />
-
                 <StepSlider />
                 <Switches /><br />
                 <Button variant="contained" size="large" color="primary" onClick={this.sendCheckin} >
                     Submit
                  </Button >
-
-                <h1>Hello World</h1>
             </Paper>
         )//end return
     }//end render

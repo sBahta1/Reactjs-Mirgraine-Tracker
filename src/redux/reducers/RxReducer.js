@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 const emptyRx = {
     med_name: '',
     symptom: '',
@@ -19,4 +21,14 @@ const RxReducer = (state = emptyRx, action) => {
     }
 };
 
-export default RxReducer;
+const RxList = (state = [], action) => {
+    if (action.type === 'SET_RX') {
+        return action.payload
+    }
+    return state
+}
+
+export default combineReducers({
+    RxReducer,
+    RxList
+});

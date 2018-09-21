@@ -20,7 +20,7 @@ class Notes extends Component {
 
 
    componentDidMount(){
-  //  this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
     this.getNotes();
    }
 
@@ -37,11 +37,11 @@ class Notes extends Component {
         alert('Unable to Get Notes!')
     })
   }
-//   componentDidUpdate() {
-//     if (!this.props.user.isLoading && this.props.user.userName === null) {
-//       this.props.history.push('home');
-//     }
-//   }
+  componentDidUpdate() {
+    if (!this.props.user.isLoading && this.props.user.userName === null) {
+      this.props.history.push('home');
+    }
+  }
     render() {
         return (
             <Paper>

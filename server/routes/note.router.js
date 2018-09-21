@@ -6,7 +6,6 @@ router.post('/', (req, res) => {
     if (req.isAuthenticated) {
         const note = req.body;
         console.log(note);
-
         const queryText = `INSERT INTO "notes"
                             ("user_id","note") 
                             VALUES ($1, $2);`;
@@ -34,7 +33,7 @@ router.get('/', (req, res) => {
            console.log('here', results.rows);
             res.send(results.rows);
         }).catch((error) => {
-            console.log('GET todo/all failed', error);
+            console.log('GET Notes Failed', error);
             res.sendStatus(500);
         });
 

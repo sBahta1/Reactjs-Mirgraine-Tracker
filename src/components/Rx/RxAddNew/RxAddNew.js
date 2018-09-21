@@ -55,7 +55,6 @@ class RxAddNew extends Component {
         }
         this.props.dispatch(action);
     };
-
     handleSymptom = (event) => {
         console.log('Symptom: ', event.target.value);
         let symptom = event.target.value
@@ -75,7 +74,6 @@ class RxAddNew extends Component {
         this.props.dispatch(action);
     };
 
-
     addNewRx = () => {
         let prescription = this.props.rx;
         console.log('Click', prescription);
@@ -89,7 +87,7 @@ class RxAddNew extends Component {
             alert('Unable to add your prescription', error)
         })
     };
-    
+
     render() {
         const { classes } = this.props;
 

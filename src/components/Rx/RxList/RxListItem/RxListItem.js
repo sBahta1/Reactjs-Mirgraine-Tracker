@@ -6,7 +6,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Divider from '@material-ui/core/Divider'
+import Divider from '@material-ui/core/Divider';
+import moment from 'moment';
 const styles = theme => ({
   root: {
     width: '100%',
@@ -16,9 +17,13 @@ const styles = theme => ({
     flexBasis: '33.33%',
     flexShrink: 0,
   },
+  secondaryHeading: {
+    fontSize: theme.typography.pxToRem(15),
+    color: theme.palette.text.secondary,
+  },
 });
 
-class NotesPanelItem extends React.Component {
+class RxListItem extends React.Component {
   state = {
     expanded: null,
   };
@@ -37,11 +42,12 @@ class NotesPanelItem extends React.Component {
       <div className={classes.root}>
         <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>19 September, 2018</Typography>
+            <Typography className={classes.heading}>{this.props.med.med_name}</Typography>
+            <Typography className={classes.secondaryHeading}>{this.props.med.symptom}</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-            {this.props.entry.note}
+            {this.props.med.dose}Mg  ~  {this.props.med.regiment}
             </Typography>
           </ExpansionPanelDetails>
           <Divider />
@@ -51,8 +57,8 @@ class NotesPanelItem extends React.Component {
   }
 }
 
-NotesPanelItem.propTypes = {
+RxListItem.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(NotesPanelItem);
+export default withStyles(styles)(RxListItem);
