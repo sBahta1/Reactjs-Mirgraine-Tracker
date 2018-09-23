@@ -24,6 +24,10 @@ class Notes extends Component {
     this.getNotes();
    }
 
+//    componentDidUpdate(){
+//        this.getNotes();
+//    }
+
    getNotes() {
     console.log('client getting');
     axios({
@@ -37,17 +41,29 @@ class Notes extends Component {
         alert('Unable to Get Notes!')
     })
   }
-  componentDidUpdate() {
-    if (!this.props.user.isLoading && this.props.user.userName === null) {
-      this.props.history.push('home');
-    }
-  }
+  
+  //saveNote = () => {
+   // let note = this.state;
+
+    // axios({
+    //     method:'POST',
+    //     url:'/api/note',
+    //     data: notes
+    // }).then((response)=>{
+    //     console.log(response);
+    //     this.getNotes();
+    // }).catch((error)=>{
+    //     console.log('Error POSTing Note',error);
+    //     alert('Unable to Post Note')
+    // })
+ //}
+  
     render() {
         return (
             <Paper>
                 <Nav />
-               <NotePad />
-               <NoteList />
+               <NotePad  get={this.getNotes}/>
+               <NoteList  />
                 {/* <Button variant="fab" mini color="primary" aria-label="Add" >
                  <AddIcon />
                 </Button> */}

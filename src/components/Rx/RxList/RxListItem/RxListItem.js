@@ -7,7 +7,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Divider from '@material-ui/core/Divider';
-import moment from 'moment';
+
 const styles = theme => ({
   root: {
     width: '100%',
@@ -23,7 +23,7 @@ const styles = theme => ({
   },
 });
 
-class RxListItem extends React.Component {
+class RxListItem extends Component {
   state = {
     expanded: null,
   };

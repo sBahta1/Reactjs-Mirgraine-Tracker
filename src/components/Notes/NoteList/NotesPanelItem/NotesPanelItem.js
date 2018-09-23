@@ -7,7 +7,8 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Divider from '@material-ui/core/Divider';
-import moment from 'moment';
+import Moment from 'react-moment';
+
 const styles = theme => ({
   root: {
     width: '100%',
@@ -19,7 +20,7 @@ const styles = theme => ({
   },
 });
 
-class NotesPanelItem extends React.Component {
+class NotesPanelItem extends Component {
   state = {
     expanded: null,
   };
@@ -38,7 +39,7 @@ class NotesPanelItem extends React.Component {
       <div className={classes.root}>
         <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>moment({this.props.entry.time_stamp}).format('LL')</Typography>
+            <Typography className={classes.heading}><Moment format="DD MMMM, YYYY">{this.props.entry.time_stamp}</Moment></Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>

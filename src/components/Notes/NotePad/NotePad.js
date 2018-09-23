@@ -4,30 +4,35 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import DoneIcon from '@material-ui/icons/Done'
 import axios from 'axios';
+
 class NotePad extends Component {
-    state = {
+  constructor(props){
+      super(props);
+    this.state = {
         note: '',
     }
+    
+}
+   
 captureNote= (event)=>{
-    console.log('capture note',event.target.value);
+   // console.log('capture note',event.target.value);
     this.setState({note:event.target.value})
 }
     saveNote = () => {
         let notes = this.state;
-        console.log(notes);
-        
+        //console.log(this.props.get);
         axios({
             method:'POST',
             url:'/api/note',
             data: notes
         }).then((response)=>{
             console.log(response);
-            
+            this.props.get()
         }).catch((error)=>{
             console.log('Error POSTing Note',error);
             alert('Unable to Post Note')
         })
-     }
+      }
 
     render() {
         return (
@@ -47,6 +52,7 @@ captureNote= (event)=>{
                     variant="outlined"
                     color="primary"
                     onClick={this.saveNote}>
+
                     <DoneIcon />
                     Save Note
                 </Button>

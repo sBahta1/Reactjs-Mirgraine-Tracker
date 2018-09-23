@@ -14,6 +14,8 @@ import InfoPage from './components/InfoPage/InfoPage';
 import DailyCheckin from './components/DailyCheckin/DailyCheckin';
 import Notes from './components/Notes/Notes';
 import Rx from './components/Rx/Rx'
+import Migraine from './components/CapMigraine/CapMigraine'
+import Graph from './components/Graph/Graph'
 import './styles/main.css';
 
 const App = () => (
@@ -49,6 +51,14 @@ const App = () => (
         <Route
         path="/rx"
         component={Rx}
+        />
+        <Route
+        path="/migraine"
+        component={Migraine}
+        />
+        <Route
+        path="/graph"
+        component={Graph}
         />
         {/* OTHERWISE (no path!) */}
         <Route render={() => <h1>404</h1>} />

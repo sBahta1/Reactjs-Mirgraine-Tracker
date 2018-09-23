@@ -75,7 +75,7 @@ class RxAddNew extends Component {
     };
 
     addNewRx = () => {
-        let prescription = this.props.rx;
+        let prescription = this.props.rx.RxReducer;
         console.log('Click', prescription);
         axios({
             method: 'POST',

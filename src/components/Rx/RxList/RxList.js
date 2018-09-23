@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
-import { stringify } from 'querystring';
+
 import RxListItem from './RxListItem/RxListItem'
 const mapStateToProps = state => ({
     rx: state.rx

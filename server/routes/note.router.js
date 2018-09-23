@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
                         ON "user"."id" = "notes"."user_id"
                         WHERE "user"."id" = $1;`;
         pool.query(qText, [req.user.id]).then((results) => {
-           console.log('here', results.rows);
+           //console.log('here', results.rows);
             res.send(results.rows);
         }).catch((error) => {
             console.log('GET Notes Failed', error);

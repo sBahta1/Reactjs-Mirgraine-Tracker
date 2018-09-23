@@ -12,10 +12,7 @@ const mapStateToProps = state => ({
 })
 
 class DailyCheckin extends Component {
-    constructor() {
-        super();
-    }
-
+   
     sendCheckin = () => {
         let dailyCheckFinal = this.props.daily;
         console.log(dailyCheckFinal);

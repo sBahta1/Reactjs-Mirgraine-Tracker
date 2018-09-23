@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
+
 const Nav = () => (
   <div className="navbar">
     <div>
@@ -10,7 +10,7 @@ const Nav = () => (
           <Link to="/user">
             User Home
           </Link>
-      
+
         </Button>
         <Button>
           <Link to="/info">
@@ -19,17 +19,27 @@ const Nav = () => (
         </Button>
         <Button>
           <Link to="/daily">
-          Daily Check-in
+            Daily Check-in
           </Link>
         </Button>
         <Button>
           <Link to="/notes">
-          Notes
+            Notes
           </Link>
         </Button>
         <Button>
           <Link to="/rx">
-          Medications
+            Medications
+          </Link>
+        </Button>
+        <Button>
+          <Link to="/migraine">
+            Capture Migraine
+          </Link>
+        </Button>
+        <Button>
+          <Link to="/graph">
+            Graphs
           </Link>
         </Button>
       </ul>
