@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Divider from '@material-ui/core/Divider';
 import Moment from 'react-moment';
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
 
 const styles = theme => ({
   root: {
@@ -45,6 +47,7 @@ class NotesPanelItem extends Component {
             <Typography>
             {this.props.entry.note}
             </Typography>
+            
           </ExpansionPanelDetails>
           <Divider />
         </ExpansionPanel>

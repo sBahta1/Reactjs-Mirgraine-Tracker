@@ -9,28 +9,32 @@ import Switch from '@material-ui/core/Switch';
 
 
 class Symptom1 extends Component {
-   
-    state = {
-       
-            head:true,
-            neck:true,
-            body:true
-    
-}
 
-    showHead=()=>{
-        console.log('click head', this.state);
-        this.setState(state=>({head: !state.head}))
-          
+    state = {
+        head: true,
+        neck: true,
+        body: true,
+        locations:{
+            temple_left:null
         }
-    
-    showNeck=()=>{
-        console.log('click neck');
-        this.setState(state=>({neck: !state.neck}))
     }
-    showBody=()=>{
+
+    showHead = () => {
+        console.log('click head', this.state);
+        this.setState(state => ({ head: !state.head }))
+    }
+
+    showNeck = () => {
+        console.log('click neck');
+        this.setState(state => ({ neck: !state.neck }))
+    }
+    showBody = () => {
         console.log('click body');
-        this.setState(state=>({body: !state.body}))
+        this.setState(state => ({ body: !state.body }))
+    }
+    handleChange = name => event =>{
+        console.log(event.target.checked);
+       // this.setState(state => ({ [name]: event.target.checked }))
     }
     render() {
 
@@ -56,63 +60,61 @@ class Symptom1 extends Component {
                     <List dense >
                         <ListItem
                             dense
-                            button>
-                            <Switch />
+                            >
+                            <Switch  checked={this.state.locations.temple_left} onChange={this.handleChange('temple_left')}/>
                             <ListItemText secondary="Temple - Left" />
                         </ListItem>
                         <Divider />
                         <ListItem
-                            dense
-                            button>
-                            <Switch />
+                            dense>
+                            <Switch value="temple_right" onChange={this.handleChange}/>
                             <ListItemText primary="Temple - Right" />
                         </ListItem>
                         <Divider />
                         <ListItem
-                            dense
-                            button>
-                            <Switch />
+                            dense>
+                            <Switch value="scalp_left" onChange={this.handleChange}/>
                             <ListItemText primary="Scalp - Left" />
                         </ListItem>
                         <Divider />
                         <ListItem
                             dense
-                            button>
-                            <Switch />
+                            >
+                            <Switch value="scalp_right" onChange={this.handleChange}/>
                             <ListItemText primary="Scalp - Right" />
                         </ListItem>
                         <Divider />
                         <ListItem
                             dense
-                            button>
-                            <Switch />
+                            >
+                            <Switch value="forehead_left" onChange={this.handleChange}/>
                             <ListItemText primary="Forehead - Left" />
                         </ListItem>
                         <Divider />
                         <ListItem
                             dense
-                            button>
-                            <Switch />
+                            >
+                            <Switch value="forehead_center" onChange={this.handleChange}/>
                             <ListItemText primary="Forehead - Center" />
                         </ListItem>
                         <Divider />
                         <ListItem
                             dense
                             button>
-                            <Switch />
+                            <Switch value="forehead_right" onChange={this.handleChange}/>
                             <ListItemText primary="Forehead - Right" />
                         </ListItem>
                         <Divider />
                         <ListItem
                             dense
                             button>
-                            <Switch />
+                            <Switch value="skull" onChange={this.handleChange}/>
                             <ListItemText primary="Base of Skull" />
                         </ListItem>
                         <Divider />
                     </List>
                 </Paper>
-               
+
                 <Paper hidden={this.state.neck}>
                     <List dense >
                         <ListItem
