@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
-import Nav from '../../Nav/Nav';
 import Paper from '@material-ui/core/Paper';
 import Switch from '@material-ui/core/Switch';
-
+import { connect } from 'react-redux';
 class MigrianeLocHead extends Component {
     state = {
         temple_left: false,
@@ -19,8 +17,10 @@ class MigrianeLocHead extends Component {
         skull: false
     }
     handleChange = name => event => {
-        console.log(event.target.checked, this.state);
-        this.setState(state => ({ [name]: !state[name] }))
+        console.log(event.target.checked, this.state, name);
+        this.setState(state => ({ [name]: !state[name] }));
+        let action = {type:'SET_{name}', payload:{value:event.target.checked, place: name}}
+        this.props.dispatch(action)
     }
     render() {
 
@@ -72,4 +72,4 @@ class MigrianeLocHead extends Component {
         )
     }
 }
-export default MigrianeLocHead;
+export default connect()(MigrianeLocHead);
