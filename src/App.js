@@ -16,6 +16,7 @@ import Notes from './components/Notes/Notes';
 import Rx from './components/Rx/Rx'
 import Migraine from './components/CapMigraine/CapMigraine'
 import Graph from './components/Graph/Graph'
+import Symptom1 from './components/CapMigraine/Symptom1/Symptom1';
 import './styles/main.css';
 
 const App = () => (
@@ -60,6 +61,11 @@ const App = () => (
         path="/graph"
         component={Graph}
         />
+        <Route
+        path="/symptom1"
+        component={Symptom1}
+        />
+
         {/* OTHERWISE (no path!) */}
         <Route render={() => <h1>404</h1>} />
 

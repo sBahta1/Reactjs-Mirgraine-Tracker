@@ -42,6 +42,11 @@ const Nav = () => (
             Graphs
           </Link>
         </Button>
+        <Button>
+          <Link to="/symptom1">
+            Symptoms
+          </Link>
+        </Button>
       </ul>
     </div>
   </div>
