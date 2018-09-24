@@ -4,9 +4,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Nav from '../../Nav/Nav';
-import Paper from '@material-ui/core/Paper';
-import Switch from '@material-ui/core/Switch';
-
+import MigraineLocHead from '../MigraineLoc/MigraineLoc.Head';
+import MigraineLocNeck from '../MigraineLoc/MIrgraineLoc.Neck';
+import MigraineLocBody from '../MigraineLoc/MigraineLoc.Body';
 
 class Symptom1 extends Component {
 
@@ -14,9 +14,6 @@ class Symptom1 extends Component {
         head: true,
         neck: true,
         body: true,
-        locations:{
-            temple_left:null
-        }
     }
 
     showHead = () => {
@@ -32,10 +29,10 @@ class Symptom1 extends Component {
         console.log('click body');
         this.setState(state => ({ body: !state.body }))
     }
-    handleChange = name => event =>{
-        console.log(event.target.checked);
-       // this.setState(state => ({ [name]: event.target.checked }))
-    }
+    // handleChange = name => event =>{
+    //     console.log(event.target.checked);
+    //    // this.setState(state => ({ [name]: event.target.checked }))
+    // }
     render() {
 
         return (
@@ -56,129 +53,15 @@ class Symptom1 extends Component {
                     <Divider />
                 </List>
 
-                <Paper hidden={this.state.head}>
-                    <List dense >
-                        <ListItem
-                            dense
-                            >
-                            <Switch  checked={this.state.locations.temple_left} onChange={this.handleChange('temple_left')}/>
-                            <ListItemText secondary="Temple - Left" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem
-                            dense>
-                            <Switch value="temple_right" onChange={this.handleChange}/>
-                            <ListItemText primary="Temple - Right" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem
-                            dense>
-                            <Switch value="scalp_left" onChange={this.handleChange}/>
-                            <ListItemText primary="Scalp - Left" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem
-                            dense
-                            >
-                            <Switch value="scalp_right" onChange={this.handleChange}/>
-                            <ListItemText primary="Scalp - Right" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem
-                            dense
-                            >
-                            <Switch value="forehead_left" onChange={this.handleChange}/>
-                            <ListItemText primary="Forehead - Left" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem
-                            dense
-                            >
-                            <Switch value="forehead_center" onChange={this.handleChange}/>
-                            <ListItemText primary="Forehead - Center" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem
-                            dense
-                            button>
-                            <Switch value="forehead_right" onChange={this.handleChange}/>
-                            <ListItemText primary="Forehead - Right" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem
-                            dense
-                            button>
-                            <Switch value="skull" onChange={this.handleChange}/>
-                            <ListItemText primary="Base of Skull" />
-                        </ListItem>
-                        <Divider />
-                    </List>
-                </Paper>
-
-                <Paper hidden={this.state.neck}>
-                    <List dense >
-                        <ListItem
-                            dense
-                            button>
-                            <Switch />
-                            <ListItemText secondary="Shoulder Muscle - Left" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem
-                            dense
-                            button>
-                            <Switch />
-                            <ListItemText primary="Shoulder Muscle - Right" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem
-                            dense
-                            button>
-                            <Switch />
-                            <ListItemText primary="Neck - Left" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem
-                            dense
-                            button>
-                            <Switch />
-                            <ListItemText primary="Neck - Right" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem
-                            dense
-                            button>
-                            <Switch />
-                            <ListItemText primary="Neck - Spine" />
-                        </ListItem>
-                        <Divider />
-                    </List>
-                </Paper>
-                <Paper hidden={this.state.body}>
-                    <List dense >
-                        <ListItem
-                            dense
-                            button>
-                            <Switch />
-                            <ListItemText secondary="Upper Back" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem
-                            dense
-                            button>
-                            <Switch />
-                            <ListItemText primary="Mid Back" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem
-                            dense
-                            button>
-                            <Switch />
-                            <ListItemText primary="Lower Back" />
-                        </ListItem>
-                        <Divider />
-                    </List>
-                </Paper>
+                <div hidden={this.state.head}>
+                    <MigraineLocHead />
+                </div>
+                <div hidden={this.state.neck}>
+                    <MigraineLocNeck />
+                </div>
+                <div hidden={this.state.body}>
+                    <MigraineLocBody />
+                </div>
 
             </div>
         )
