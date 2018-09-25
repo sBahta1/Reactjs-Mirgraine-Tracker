@@ -13,11 +13,12 @@ import Button from '@material-ui/core/Button';
 const mapStateToProps = state => ({
     migraine: state.migraine
 })
+const locationCombo = [];
 
 class Symptom1 extends Component {
 sendLocations=()=>{
-    console.log('click', this.props.migraine.migraineHead);
-    
+    console.log('click', this.props.migraine);
+    //this.props.migraine.map
 }
     state = {
         head: true,

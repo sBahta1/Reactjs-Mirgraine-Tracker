@@ -20,5 +20,21 @@ router.post('/', (req, res) => {
     }
 });
 
+router.post('/loc', (req, res) => {
+    if (req.isAuthenticated) {
+        const queryText = ``;
+        pool.query(queryText, [req.user.id])
+            .then((results) => {
+                res.sendStatus(200);
+            }).catch((error) => {
+                console.log('Daily Checkin POST Failed', error);
+                res.sendStatus(500);
+            });
+    } else {
+        res.sendStatus(403);
+    }
+});
+
+
 
 module.exports = router;
