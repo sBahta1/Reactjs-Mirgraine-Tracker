@@ -4,9 +4,10 @@ const router = express.Router();
 
 router.post('/', (req, res) => {
     if (req.isAuthenticated) {
-        const queryText = `INSERT INTO "migraine_epi"
-                            ("user_id") 
-                            VALUES ($1);`;
+        const queryText = `WITH first_ins as (INSERT INTO "migraine_epi" ("user_id")
+                            Values ($1) RETURNING id, user_id)
+                            INSERT INTO "migraine_loc" ("migraine_id", "user_id")
+                            VALUES ((SELECT "id" FROM first_ins), (SELECT "user_id" From first_ins));`;
         pool.query(queryText, [req.user.id])
             .then((results) => {
                 res.sendStatus(200);
