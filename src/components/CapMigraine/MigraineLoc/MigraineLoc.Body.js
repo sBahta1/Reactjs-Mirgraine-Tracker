@@ -4,6 +4,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Paper from '@material-ui/core/Paper';
 import Switch from '@material-ui/core/Switch';
+import { connect } from 'react-redux';
 class MigrianeLocBody extends Component {
     state = {
         back_upper: false,
@@ -11,13 +12,15 @@ class MigrianeLocBody extends Component {
         back_lower: false,
     }
     handleChange = name => event => {
-        console.log(event.target.checked, this.state);
-        this.setState(state => ({ [name]: !state[name] }))
+        //console.log(event.target.checked, this.state, name);
+        this.setState(state => ({ [name]: !state[name] }));
+        let action = { type: 'SET_BODYLOC', payload: { value: event.target.checked, place: name } }
+        this.props.dispatch(action)
     }
     render() {
 
         return (
-            <Paper hidden={this.state.head}>
+            <Paper >
                 <List dense >
                     <ListItem
                         dense>
@@ -39,4 +42,4 @@ class MigrianeLocBody extends Component {
         )
     }
 }
-export default MigrianeLocBody;
+export default connect()(MigrianeLocBody);

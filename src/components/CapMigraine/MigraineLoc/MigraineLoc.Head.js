@@ -16,16 +16,17 @@ class MigrianeLocHead extends Component {
         forehead_right: false,
         skull: false
     }
+
     handleChange = name => event => {
         console.log(event.target.checked, this.state, name);
         this.setState(state => ({ [name]: !state[name] }));
-        let action = {type:'SET_{name}', payload:{value:event.target.checked, place: name}}
+        let action = { type: 'SET_HEADLOC', payload: { value: event.target.checked, place: name } }
         this.props.dispatch(action)
     }
     render() {
 
         return (
-            <Paper hidden={this.state.head}>
+            <Paper >
                 <List dense >
                     <ListItem
                         dense>

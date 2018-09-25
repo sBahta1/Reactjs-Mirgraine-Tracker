@@ -16,9 +16,8 @@ const RxReducer = (state = emptyRx, action) => {
         return { ...state, symptom: action.payload };
     } else if (action.type === 'SET_REGI') {
         return { ...state, regiment: action.payload };
-    } else {
+    } 
         return state;
-    }
 };
 
 const RxList = (state = [], action) => {

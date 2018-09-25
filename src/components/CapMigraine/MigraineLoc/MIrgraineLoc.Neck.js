@@ -4,7 +4,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Paper from '@material-ui/core/Paper';
 import Switch from '@material-ui/core/Switch';
-
+import { connect } from 'react-redux';
 class MigrianeLocNeck extends Component {
     state = {
         shoulder_left: false,
@@ -14,13 +14,15 @@ class MigrianeLocNeck extends Component {
         neck_spine: false,
     }
     handleChange = name => event => {
-        console.log(event.target.checked, this.state);
-        this.setState(state => ({ [name]: !state[name] }))
+       // console.log(event.target.checked, this.state, name);
+        this.setState(state => ({ [name]: !state[name] }));
+        let action = { type: 'SET_NECKLOC', payload: { value: event.target.checked, place: name } }
+        this.props.dispatch(action)
     }
     render() {
 
         return (
-            <Paper hidden={this.state.head}>
+            <Paper >
                 <List dense >
                     <ListItem
                         dense>
@@ -52,4 +54,4 @@ class MigrianeLocNeck extends Component {
         )
     }
 }
-export default MigrianeLocNeck;
+export default connect()(MigrianeLocNeck);

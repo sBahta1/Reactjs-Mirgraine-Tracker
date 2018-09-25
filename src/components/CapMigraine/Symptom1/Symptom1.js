@@ -7,9 +7,18 @@ import Nav from '../../Nav/Nav';
 import MigraineLocHead from '../MigraineLoc/MigraineLoc.Head';
 import MigraineLocNeck from '../MigraineLoc/MIrgraineLoc.Neck';
 import MigraineLocBody from '../MigraineLoc/MigraineLoc.Body';
+import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
+
+const mapStateToProps = state => ({
+    migraine: state.migraine
+})
 
 class Symptom1 extends Component {
-
+sendLocations=()=>{
+    console.log('click', this.props.migraine.migraineHead);
+    
+}
     state = {
         head: true,
         neck: true,
@@ -17,22 +26,19 @@ class Symptom1 extends Component {
     }
 
     showHead = () => {
-        console.log('click head', this.state);
+        //console.log('click head', this.state);
         this.setState(state => ({ head: !state.head }))
     }
 
     showNeck = () => {
-        console.log('click neck');
+        // console.log('click neck');
         this.setState(state => ({ neck: !state.neck }))
     }
     showBody = () => {
-        console.log('click body');
+        // console.log('click body');
         this.setState(state => ({ body: !state.body }))
     }
-    // handleChange = name => event =>{
-    //     console.log(event.target.checked);
-    //    // this.setState(state => ({ [name]: event.target.checked }))
-    // }
+
     render() {
 
         return (
@@ -62,10 +68,14 @@ class Symptom1 extends Component {
                 <div hidden={this.state.body}>
                     <MigraineLocBody />
                 </div>
-
+                <div>
+                    <Button onClick={this.sendLocations}>
+                        Next
+                    </Button>
+                </div>
             </div>
         )
     }
 }//end class 
 
-export default Symptom1;
+export default connect(mapStateToProps)(Symptom1);

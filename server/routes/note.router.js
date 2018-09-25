@@ -20,6 +20,7 @@ router.post('/', (req, res) => {
         res.sendStatus(403);
     }
 });
+
 //Get notes by signed in user
 router.get('/', (req, res) => {
     if (req.isAuthenticated()) {

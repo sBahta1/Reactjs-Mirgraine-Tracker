@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import Button from '@material-ui/core/Button';
 import Nav from '../../components/Nav/Nav';
-
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
-
+import axios from 'axios';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -25,7 +24,18 @@ class UserPage extends Component {
   logout = () => {
     this.props.dispatch(triggerLogout());
   }
-
+capMigraine=()=>{
+  axios({
+    method:'POST',
+    url:'api/migr',
+  }).then((response)=>{
+    console.log(response);
+    alert('Migraine Logged')
+  }).catch((error)=>{
+    console.log(error);
+    alert('error logging migrain', error);
+  })
+}
   render() {
     let content = null;
 
@@ -38,6 +48,9 @@ class UserPage extends Component {
             Welcome, { this.props.user.userName }!
           </h1>
           <p>Your ID is: {this.props.user.id}</p>
+          <Button variant="contained" size="large" color="primary" onClick={this.capMigraine}>
+                Capture Migraine
+            </Button>
           <button
             onClick={this.logout}
           >
