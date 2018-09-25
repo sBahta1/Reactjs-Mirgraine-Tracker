@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Switch from '@material-ui/core/Switch';
 import Divider from '@material-ui/core/Divider';
 import { connect } from 'react-redux';
+import Typography from '@material-ui/core/Typography';
 class Switches extends Component {
     state = {
         medication: false,
@@ -40,11 +41,10 @@ class Switches extends Component {
     render() {
         return (
             <div>
-                <p>Medication Taken</p>
-                <Switch color="primary" checked={this.state.medication} onChange={this.handleMedsChange} />
-
-                <p>Menstruation</p>
-                <Switch color="primary" checked={this.state.menstruation} onChange={this.handleMensChange} />
+                <Typography id="label1">Medication</Typography>
+                <Switch color="primary" aria-labelledby="label1" checked={this.state.medication} onChange={this.handleMedsChange} />
+                <Typography id="label2">Menstruating</Typography>
+                <Switch color="primary" aria-labelledby="label2" checked={this.state.menstruation} onChange={this.handleMensChange} />
                 <Divider />
             </div>
 

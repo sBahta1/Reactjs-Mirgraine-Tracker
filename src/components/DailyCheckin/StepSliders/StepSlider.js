@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/lab/Slider';
 import { connect } from 'react-redux';
 import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+
 const styles = {
   root: {
     width: 300,
@@ -62,17 +64,17 @@ class StepSlider extends Component {
 
     return (
       <div className={classes.root}>
-        <p>Mood</p>
-        <Slider value={this.state.mood} min={0} max={10} step={1} onChange={this.handleMoodChange} />
+        <Typography id="label1">Mood</Typography>
+        <Slider value={this.state.mood} aria-labelledby="label1" min={0} max={10} step={1} onChange={this.handleMoodChange} />
         <Divider />
-        <p>Hydration</p>
-        <Slider value={this.state.hydro} min={0} max={10} step={1} onChange={this.handleHydroChange} />
+        <Typography id="label2">Hydration</Typography>
+        <Slider value={this.state.hydro} aria-labelledby="label2" min={0} max={10} step={1} onChange={this.handleHydroChange} />
         <Divider />
-        <p>Fitness</p>
-        <Slider value={this.state.fitness} min={0} max={10} step={1} onChange={this.handleFitnessChange} />
+        <Typography id="label3">Fitness</Typography>
+        <Slider value={this.state.fitness} aria-labelledby="label3" min={0} max={10} step={1} onChange={this.handleFitnessChange} />
         <Divider />
-        <p>Nutrition</p>
-        <Slider value={this.state.nutrition} min={0} max={10} step={1} onChange={this.handleNutritionChange} />
+        <Typography id="label4">Nutrition</Typography>
+        <Slider value={this.state.nutrition} aria-labelledby="label4" min={0} max={10} step={1} onChange={this.handleNutritionChange} />
         <Divider />
       </div>
     );
