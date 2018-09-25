@@ -20,7 +20,7 @@ class MigrianeLocHead extends Component {
     handleChange = name => event => {
         console.log(event.target.checked, this.state, name);
         this.setState(state => ({ [name]: !state[name] }));
-        let action = { type: 'SET_HEADLOC', payload: { value: event.target.checked, place: name } }
+        let action = { type: 'SET_LOC', payload: { value: event.target.checked, place: name } }
         this.props.dispatch(action)
     }
     render() {

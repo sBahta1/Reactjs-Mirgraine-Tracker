@@ -9,17 +9,29 @@ import MigraineLocNeck from '../MigraineLoc/MIrgraineLoc.Neck';
 import MigraineLocBody from '../MigraineLoc/MigraineLoc.Body';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
-
+import axios from 'axios';
 const mapStateToProps = state => ({
     migraine: state.migraine
 })
-const locationCombo = [];
+
+//const locationToSend = this.props.migraine.migrainelocation;
 
 class Symptom1 extends Component {
-sendLocations=()=>{
-    console.log('click', this.props.migraine);
-    //this.props.migraine.map
-}
+
+    sendLocations = () => {
+        let locationToSend = this.props.migraine.migraineLocation;
+        console.log('click', locationToSend);
+        axios({
+            method: 'PUT',
+            url: '/api/migr/loc',
+            data: locationToSend
+        }).then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.log('Error posting Migraine Location', error);
+            alert('Error posting Migraine Location', error);
+        });
+    }
     state = {
         head: true,
         neck: true,
