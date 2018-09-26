@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 
-const mapStateToProps = state=>({
+const mapStateToProps = state => ({
 
 })
 
@@ -19,31 +19,31 @@ class Notes extends Component {
 
 
 
-   componentDidMount(){
-    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
-    this.getNotes();
-   }
+    componentDidMount() {
+        this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+        this.getNotes();
+    }
 
-//    componentDidUpdate(){
-//        this.getNotes();
-//    }
+    //    componentDidUpdate(){
+    //        this.getNotes();
+    //    }
 
-   getNotes() {
-    console.log('client getting');
-    axios({
-      method: 'GET',
-      url: '/api/note'//logged user notes only
-    }).then((response) => {
-      const action = {type:'SET_NOTES', payload: response.data}
-      this.props.dispatch(action)
-    }).catch((error)=>{
-        console.log('error',error);
-        alert('Unable to Get Notes!')
-    })
-  }
-  
-  //saveNote = () => {
-   // let note = this.state;
+    getNotes() {
+        console.log('client getting');
+        axios({
+            method: 'GET',
+            url: '/api/note'//logged user notes only
+        }).then((response) => {
+            const action = { type: 'SET_NOTES', payload: response.data }
+            this.props.dispatch(action)
+        }).catch((error) => {
+            console.log('error', error);
+            alert('Unable to Get Notes!')
+        })
+    }
+
+    //saveNote = () => {
+    // let note = this.state;
 
     // axios({
     //     method:'POST',
@@ -56,14 +56,14 @@ class Notes extends Component {
     //     console.log('Error POSTing Note',error);
     //     alert('Unable to Post Note')
     // })
- //}
-  
+    //}
+
     render() {
         return (
             <Paper>
                 <Nav />
-               <NotePad  />
-               <NoteList  />
+                <NotePad />
+                <NoteList />
                 {/* <Button variant="fab" mini color="primary" aria-label="Add" >
                  <AddIcon />
                 </Button> */}
