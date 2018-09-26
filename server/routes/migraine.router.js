@@ -40,6 +40,25 @@ router.put('/loc', (req, res) => {
     }
 });
 
+router.put('/sev', (req, res) => {
+    if (req.isAuthenticated) {
+        const data = req.body;
+        //console.log(loc); 
+        const queryText = `UPDATE "migraine_epi" SET "severity" = $1, "notes" = $2 WHERE "id" IN (SELECT MAX("id") FROM "migraine_epi");`;
+        pool.query(queryText, [data.value, data.notes])
+            .then((results) => {
+                res.sendStatus(200);
+            }).catch((error) => {
+                console.log('Migraine Locations Failed to log', error);
+                res.sendStatus(500);
+            });
+    } else {
+        res.sendStatus(403);
+    }
+});
+
+
+
 
 
 module.exports = router;

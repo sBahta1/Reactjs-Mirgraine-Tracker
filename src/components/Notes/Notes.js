@@ -62,7 +62,7 @@ class Notes extends Component {
         return (
             <Paper>
                 <Nav />
-               <NotePad  get={this.getNotes}/>
+               <NotePad  />
                <NoteList  />
                 {/* <Button variant="fab" mini color="primary" aria-label="Add" >
                  <AddIcon />

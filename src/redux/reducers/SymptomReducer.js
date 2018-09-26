@@ -18,6 +18,7 @@ const empty = {
     back_mid: false,
     back_lower: false,
 }
+
 const migraineLocation = (state = empty, action) => {
     if (action.type === 'SET_LOC') {
         let value = action.payload.value;

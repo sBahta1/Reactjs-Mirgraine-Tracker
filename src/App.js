@@ -17,6 +17,7 @@ import Rx from './components/Rx/Rx'
 import Migraine from './components/CapMigraine/CapMigraine'
 import Graph from './components/Graph/Graph'
 import Symptom1 from './components/CapMigraine/Symptom1/Symptom1';
+import Symptom2 from './components/CapMigraine/Symptom2/Symptom2';
 import './styles/main.css';
 
 const App = () => (
@@ -42,28 +43,32 @@ const App = () => (
           component={InfoPage}
         />
         <Route
-        path="/daily"
-        component={DailyCheckin}
+          path="/daily"
+          component={DailyCheckin}
         />
         <Route
-        path="/notes"
-        component={Notes}
+          path="/notes"
+          component={Notes}
         />
         <Route
-        path="/rx"
-        component={Rx}
+          path="/rx"
+          component={Rx}
         />
         <Route
-        path="/migraine"
-        component={Migraine}
+          path="/migraine"
+          component={Migraine}
         />
         <Route
-        path="/graph"
-        component={Graph}
+          path="/graph"
+          component={Graph}
         />
         <Route
-        path="/symptom1"
-        component={Symptom1}
+          path="/symptom1"
+          component={Symptom1}
+        />
+        <Route
+          path="/symptom2"
+          component={Symptom2}
         />
 
         {/* OTHERWISE (no path!) */}

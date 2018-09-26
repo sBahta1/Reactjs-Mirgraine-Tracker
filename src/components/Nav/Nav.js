@@ -47,6 +47,11 @@ const Nav = () => (
             Symptoms
           </Link>
         </Button>
+        <Button>
+          <Link to="/symptom2">
+            Symptoms2
+          </Link>
+        </Button>
       </ul>
     </div>
   </div>
