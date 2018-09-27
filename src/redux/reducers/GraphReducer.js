@@ -9,13 +9,7 @@ const sorted = {
     medication: null,
     menstruating: null,
 }
-// const dateArr = []
-// const moodArr = []
-// const hydrationArr = []
-// const fitnessArr = []
-// const nutritionArr = []
-// const medicationArr = []
-// const menstruatingArr = []
+
 
 const graphReducer = (state = sorted, action) => {
     if (action.type === 'SET_GRAPH_DATA') {
