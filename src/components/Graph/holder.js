@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../Nav/Nav';
-import { Line } from 'react-chartjs-2';
+import { Line, Bar, Doughnut } from 'react-chartjs-2';
 import Paper from '@material-ui/core/Paper';
 import axios from "axios";
 import { connect } from 'react-redux';
@@ -17,22 +17,14 @@ class Chart extends Component {
         let mood = props.graphData.mood
 
         this.state = {
-            chartData: {}
+            chartData: {data}
         }
     }
     setGraphWithData = () => {
         let mood = this.props.graphData.mood;
-        let days = [];
-        let hydro = this.props.graphData.hydration;
-        let fit = this.props.graphData.fitness;
-        let nutri = this.props.graphData.nutrition;
-        console.log(mood,days);
-        for (let entry of this.props.graphData.date) {
-            days.push(moment(entry).format('ddd MMM D'));
-          }
-          console.log(mood,days,);
+        let days = this.props.graphData.date
         this.setState({
-            chartData: {
+            data: {
                 labels: days,
                 datasets: [
                     {
@@ -40,27 +32,6 @@ class Chart extends Component {
                         data:  mood ,
                         borderColor: '#35DDFF',
                         backgroundColor: '#35DDFF',
-                        fill: false
-                    },
-                    {
-                        label: 'Hydration',
-                        data: hydro,
-                        borderColor: '#8E43E8',
-                        backgroundColor:'#8E43E8',
-                        fill: false
-                    },
-                    {
-                        label: 'Fitness',
-                        data: fit,
-                        borderColor: '#FF6886',
-                        backgroundColor:'#FF6886',
-                        fill: false
-                    },
-                    {
-                        label: 'Nutrition',
-                        data: nutri,
-                        borderColor: '#46E895',
-                        backgroundColor:'#46E895',
                         fill: false
                     }
                 ]
