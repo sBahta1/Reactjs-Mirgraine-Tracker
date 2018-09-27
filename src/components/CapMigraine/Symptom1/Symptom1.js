@@ -27,6 +27,7 @@ class Symptom1 extends Component {
             data: locationToSend
         }).then((response) => {
             console.log(response);
+            this.props.history.push('symptom2')
         }).catch((error) => {
             console.log('Error posting Migraine Location', error);
             alert('Error posting Migraine Location', error);

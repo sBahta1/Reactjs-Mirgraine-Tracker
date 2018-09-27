@@ -38,6 +38,7 @@ class StepSlider extends Component {
       data: data
     }).then((response) => {
       console.log(response);
+      this.props.history.push('home')
     }).catch((error) => {
       console.log('Error posting Migraine Location', error);
       alert('Error posting Migraine Location', error);

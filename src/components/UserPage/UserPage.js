@@ -31,6 +31,7 @@ capMigraine=()=>{
   }).then((response)=>{
     console.log(response);
     alert('Migraine Logged')
+    this.props.history.push('migraine')
   }).catch((error)=>{
     console.log(error);
     alert('error logging migrain', error);
