@@ -11,13 +11,12 @@ router.get('/', (req, res) => {
                         ON "user"."id" = "daily_checkin"."user_id"
                         WHERE "user"."id" = $1;`;
         pool.query(qText, [req.user.id]).then((results) => {
-          // console.log('Here', results.rows);
+           console.log('Here', results.rows);
             res.send(results.rows);
         }).catch((error) => {
             console.log('GET graph data failed', error);
             res.sendStatus(500);
         });
-
     } else {
         res.sendStatus(403);
     }
