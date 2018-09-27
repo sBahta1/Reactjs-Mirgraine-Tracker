@@ -9,13 +9,10 @@ import moment from 'moment';
 const mapStateToProps = state => ({
     graphData: state.graph.graphReducer
 })
-//let mood = props.graphData.mood
 
 class Chart extends Component {
     constructor(props) {
         super(props);
-        let mood = props.graphData.mood
-
         this.state = {
             chartData: {}
         }
@@ -68,29 +65,17 @@ class Chart extends Component {
         })
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.getData();
-        //this.setGraphWithData()
     }
-// componentWillReceiveProps(){
-//     this.setGraphWithData()
-// }
 
-    // componentDidMount() {
-    //     this.setGraphWithData()
-    // }
-    //  setChart=()=>{
-    //      this.setState({
-
-    //      })
-    //  }
 
     getData = () => {
         axios({
             method: "GET",
             url: '/api/graph'
         }).then((response) => {
-            console.log('Where is my log', response.data);
+            //console.log('Where is my log', response.data);
             let action = { type: 'SET_GRAPH_DATA', payload: response.data }
             this.props.dispatch(action);
             this.setGraphWithData();
@@ -109,13 +94,10 @@ class Chart extends Component {
                         options={{
                         }}
                     />
-                    {JSON.stringify(this.props.graphData.mood)}
                 </Paper>
             </div>
-
         )
     }
-
 }//class
 
 export default connect(mapStateToProps)(Chart);

@@ -9,16 +9,23 @@ const sorted = {
     medication: null,
     menstruating: null,
 }
-const dateArr = []
-const moodArr = []
-const hydrationArr = []
-const fitnessArr = []
-const nutritionArr = []
-const medicationArr = []
-const menstruatingArr = []
+// const dateArr = []
+// const moodArr = []
+// const hydrationArr = []
+// const fitnessArr = []
+// const nutritionArr = []
+// const medicationArr = []
+// const menstruatingArr = []
 
 const graphReducer = (state = sorted, action) => {
     if (action.type === 'SET_GRAPH_DATA') {
+        let dateArr = []
+        let moodArr = []
+        let hydrationArr = []
+        let fitnessArr = []
+        let nutritionArr = []
+        let medicationArr = []
+        let menstruatingArr = []
         for (let i = 0; i < action.payload.length; i++) {
             const row = action.payload[i];
             dateArr.push(row.date);
