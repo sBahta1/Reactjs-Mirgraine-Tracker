@@ -6,7 +6,7 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import Header from './components/Header/Header';
+
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import UserPage from './components/UserPage/UserPage';
@@ -19,10 +19,10 @@ import Graph from './components/Graph/Graph'
 import Symptom1 from './components/CapMigraine/Symptom1/Symptom1';
 import Symptom2 from './components/CapMigraine/Symptom2/Symptom2';
 import './styles/main.css';
-
+import Nav from './components/Nav/Nav';
 const App = () => (
   <div>
-    <Header title="Migraine Tracker" />
+     {/* <Header title="Migraine Tracker" /> */}
     <Router>
       <Switch>
         <Redirect exact from="/" to="/home" />
@@ -69,6 +69,10 @@ const App = () => (
         <Route
           path="/symptom2"
           component={Symptom2}
+        />
+        <Route
+          path="/nav"
+          component={Nav}
         />
 
         {/* OTHERWISE (no path!) */}

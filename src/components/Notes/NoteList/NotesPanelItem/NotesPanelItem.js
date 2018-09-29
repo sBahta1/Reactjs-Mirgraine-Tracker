@@ -10,6 +10,8 @@ import Divider from '@material-ui/core/Divider';
 import Moment from 'react-moment';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
+import Axios from 'axios';
+import { connect } from 'react-redux'
 
 const styles = theme => ({
   root: {
@@ -20,6 +22,15 @@ const styles = theme => ({
     flexBasis: '33.33%',
     flexShrink: 0,
   },
+  button: {
+  right:0,
+  },
+  Panel:{
+    position:'relative',
+    display:'flex', 
+    flexDirection:'row', 
+    justifyContent:'space-between'
+  }
 });
 
 class NotesPanelItem extends Component {
@@ -32,6 +43,33 @@ class NotesPanelItem extends Component {
       expanded: expanded ? panel : false,
     });
   };
+  deleteNote = (entry) =>{
+    console.log(entry.note_id);
+    let id = entry.note_id;
+    Axios({
+      method:'DELETE',
+      url:'/api/note/'+id
+    }).then((response)=>{
+      console.log('Note Deleted');
+      this.getNotes();
+    }).catch((error)=>{
+      console.log(error);
+      alert('unable to delete post')
+    })
+  }
+  getNotes = () => {
+    console.log('client getting');
+    Axios({
+        method: 'GET',
+        url: '/api/note'//logged user notes only
+    }).then((response) => {
+        const action = { type: 'SET_NOTES', payload: response.data }
+        this.props.dispatch(action)
+    }).catch((error) => {
+        console.log('error', error);
+        alert('Unable to Get Notes!')
+    })
+}
 
   render() {
     const { classes } = this.props;
@@ -39,15 +77,17 @@ class NotesPanelItem extends Component {
 
     return (
       <div className={classes.root}>
-        <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
+        <ExpansionPanel  expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className={classes.heading}><Moment format="DD MMMM, YYYY">{this.props.entry.time_stamp}</Moment></Typography>
           </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+          <ExpansionPanelDetails className={classes.Panel}>
             <Typography>
-            {this.props.entry.note}
+              {this.props.entry.note}
             </Typography>
-            
+            <IconButton className={classes.button} aria-label="Delete" id={this.props.entry.note_id} onClick={()=>this.deleteNote(this.props.entry)}>
+              <DeleteIcon />
+            </IconButton>
           </ExpansionPanelDetails>
           <Divider />
         </ExpansionPanel>
@@ -59,5 +99,5 @@ class NotesPanelItem extends Component {
 NotesPanelItem.propTypes = {
   classes: PropTypes.object.isRequired,
 };
-
-export default withStyles(styles)(NotesPanelItem);
+const NotesPanelItemWithStyles = withStyles(styles)(NotesPanelItem);
+export default connect()(NotesPanelItemWithStyles);

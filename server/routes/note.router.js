@@ -43,4 +43,22 @@ router.get('/', (req, res) => {
     }
 });
 
+router.delete('/:id', (req, res) => {
+    if (req.isAuthenticated()) {
+    const idOfItemtoDelete = req.params.id;
+      console.log('deleting ', idOfItemtoDelete);
+      const queryText = 'DELETE FROM "notes" WHERE "note_id" = $1;';
+      pool.query(queryText, [idOfItemtoDelete]).then((result) => {
+          res.sendStatus(200);
+      }).catch( (error) => {
+          console.log('Error in delete', error);
+          res.sendStatus(500);
+      });
+    } else {
+        res.sendStatus(403);
+    }
+  });
+  
+
+
 module.exports = router;

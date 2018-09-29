@@ -17,11 +17,11 @@ class NoteList extends Component {
         return (
             <Paper >
                 {/* {JSON.stringify(this.props.notes)} */}
-                {this.props.notes.notesReducer.map((entry,i)=>{
-                    //console.log(entry);
+                {this.props.notes.notesReducer.map((entry)=>{
+                    console.log(entry.note_id);
                     return(
                         <div>
-                 <NotesPanelItem key={i} entry={entry}/>
+                 <NotesPanelItem key={entry.note_id} entry={entry}/>
                  </div>
                     )
                 })}

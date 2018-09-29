@@ -34,6 +34,7 @@ class Notes extends Component {
             method: 'GET',
             url: '/api/note'//logged user notes only
         }).then((response) => {
+            console.log(response.data);
             const action = { type: 'SET_NOTES', payload: response.data }
             this.props.dispatch(action)
         }).catch((error) => {
