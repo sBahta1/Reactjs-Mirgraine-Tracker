@@ -18,12 +18,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ShowChart from '@material-ui/icons/ShowChart'
 import Home from '@material-ui/icons/Home';
 import LocalPharmacy from '@material-ui/icons/LocalPharmacy';
+
 const styles = {
   root: {
     flexGrow: 1,
   },
   grow: {
-    flexGrow: 1,
+    flexGrow: 0.2,
   },
   menuButton: {
     marginLeft: -12,

@@ -10,19 +10,19 @@ const mapStateToProps = state => ({
 })
 
 class NoteList extends Component {
-   
+
     render() {
-      
+
 
         return (
             <Paper >
                 {/* {JSON.stringify(this.props.notes)} */}
-                {this.props.notes.notesReducer.map((entry)=>{
+                {this.props.notes.notesReducer.map((entry) => {
                     console.log(entry.note_id);
-                    return(
+                    return (
                         <div>
-                 <NotesPanelItem key={entry.note_id} entry={entry}/>
-                 </div>
+                            <NotesPanelItem key={entry.note_id} entry={entry} />
+                        </div>
                     )
                 })}
             </Paper>

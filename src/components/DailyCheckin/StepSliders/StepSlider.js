@@ -9,6 +9,11 @@ import Typography from '@material-ui/core/Typography';
 const styles = {
   root: {
     width: 300,
+    position:'relative',
+    display:'flex', 
+    justify:'center',
+    flexDirection:'column', 
+    alignItems:'center'
   },
 };
 
@@ -65,7 +70,7 @@ class StepSlider extends Component {
     return (
       <div className={classes.root}>
         <Typography id="label1">Mood</Typography>
-        <Slider value={this.state.mood} aria-labelledby="label1" min={0} max={10} step={1} onChange={this.handleMoodChange} />
+        <Slider className={classes.track} value={this.state.mood} aria-labelledby="label1" min={0} max={10}  onChange={this.handleMoodChange}  />
         <Divider />
         <Typography id="label2">Hydration</Typography>
         <Slider value={this.state.hydro} aria-labelledby="label2" min={0} max={10} step={1} onChange={this.handleHydroChange} />
@@ -76,6 +81,7 @@ class StepSlider extends Component {
         <Typography id="label4">Nutrition</Typography>
         <Slider value={this.state.nutrition} aria-labelledby="label4" min={0} max={10} step={1} onChange={this.handleNutritionChange} />
         <Divider />
+       
       </div>
     );
   }

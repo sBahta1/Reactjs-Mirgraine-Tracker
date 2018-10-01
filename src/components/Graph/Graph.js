@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../Nav/Nav';
-import { Line } from 'react-chartjs-2';
+import { Line, Bar } from 'react-chartjs-2';
 import Paper from '@material-ui/core/Paper';
 import axios from "axios";
 import { connect } from 'react-redux';
@@ -23,42 +23,46 @@ class Chart extends Component {
         let hydro = this.props.graphData.hydration;
         let fit = this.props.graphData.fitness;
         let nutri = this.props.graphData.nutrition;
-        console.log(mood,days);
+        console.log(mood, days);
         for (let entry of this.props.graphData.date) {
             days.push(moment(entry).format('ddd MMM D'));
-          }
-          console.log(mood,days,);
+        }
+        // console.log(mood,days,);
         this.setState({
             chartData: {
                 labels: days,
                 datasets: [
                     {
                         label: 'Mood',
-                        data:  mood ,
+                        data: mood,
                         borderColor: '#35DDFF',
                         backgroundColor: '#35DDFF',
-                        fill: false
+                        fill: false,
+                        borderWidth: '2px'
                     },
                     {
                         label: 'Hydration',
                         data: hydro,
                         borderColor: '#8E43E8',
-                        backgroundColor:'#8E43E8',
-                        fill: false
+                        backgroundColor: '#8E43E8',
+                        fill: false,
+                        borderWidth: '2px'
                     },
                     {
                         label: 'Fitness',
                         data: fit,
                         borderColor: '#FF6886',
-                        backgroundColor:'#FF6886',
-                        fill: false
+                        backgroundColor: '#FF6886',
+                        fill: false,
+                        borderWidth: '2px'
                     },
                     {
                         label: 'Nutrition',
                         data: nutri,
                         borderColor: '#46E895',
-                        backgroundColor:'#46E895',
-                        fill: false
+                        backgroundColor: '#46E895',
+                        fill: false,
+                        borderWidth: '2px'
                     }
                 ]
             }
@@ -84,18 +88,31 @@ class Chart extends Component {
             alert('Error getting graph data', error)
         })
     }
+
     render() {
         return (
-            <div>
+            <Paper>
                 <Nav />
-                <Paper>
+                <div>
                     <Line
                         data={this.state.chartData}
                         options={{
+                            title: {
+                                display: true,
+                                text: 'My Daily Check-ins',
+                                fontSize: 25
+                            },
+                            legend: {
+                                position: 'bottom'
+                            },
                         }}
+                        height={400}
+                    // width={1200}
+
                     />
-                </Paper>
-            </div>
+                </div>
+            </Paper>
+
         )
     }
 }//class

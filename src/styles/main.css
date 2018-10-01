@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: 'Vollkorn', serif;
 }
 
 .instructions h1 {
@@ -51,6 +51,7 @@ input[type="submit"] {
   background-color: #00acb0;
   width: 100%;
   border-radius: 0px;
+  font-family: 'Vollkorn', serif;
 }
 
 ul {

@@ -128,7 +128,7 @@ class RxAddNew extends Component {
                 </div>
                 <Button
                     variant="fab"
-                    mini color="primary"
+                    mini color="secondary"
                     aria-label="Add"
                     onClick={this.addNewRx} >
                     <AddIcon />

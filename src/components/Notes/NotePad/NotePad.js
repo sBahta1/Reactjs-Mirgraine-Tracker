@@ -5,6 +5,20 @@ import Icon from '@material-ui/core/Icon';
 import DoneIcon from '@material-ui/icons/Done'
 import axios from 'axios';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+const styles = {
+    
+    button:{
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+       // borderRadius: 3,
+        border: 0,
+        color: 'white',
+        //height: 48,
+        //padding: '0 30px',
+        //boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    }
+}
 class NotePad extends Component {
     constructor(props) {
         super(props);
@@ -17,6 +31,7 @@ class NotePad extends Component {
         // console.log('capture note',event.target.value);
         this.setState({ note: event.target.value });
     }
+    
     saveNote = () => {
         let notes = this.state;
         //console.log(this.props.get);
@@ -26,6 +41,7 @@ class NotePad extends Component {
             data: notes
         }).then((response) => {
             console.log(response);
+            
             this.getNotes();
         }).catch((error) => {
             console.log('Error POSTing Note', error);
@@ -48,6 +64,7 @@ class NotePad extends Component {
     }
 
     render() {
+        const { classes } = this.props;
         return (
             <div>
                 <TextField
@@ -59,11 +76,12 @@ class NotePad extends Component {
                     margin="normal"
                     variant="outlined"
                     onChange={this.captureNote}
+                    
                 />
                 <br />
                 <Button
                     variant="outlined"
-                    color="primary"
+                    className={classes.button}
                     onClick={this.saveNote}>
 
                     <DoneIcon />
@@ -73,4 +91,9 @@ class NotePad extends Component {
         )
     }
 }//end Class 
-export default connect()(NotePad);
+NotePad.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+const notePadWithStyles = withStyles(styles)(NotePad)
+
+export default connect()(notePadWithStyles);

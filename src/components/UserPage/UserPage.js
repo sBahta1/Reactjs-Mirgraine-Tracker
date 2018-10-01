@@ -24,19 +24,19 @@ class UserPage extends Component {
   logout = () => {
     this.props.dispatch(triggerLogout());
   }
-capMigraine=()=>{
-  axios({
-    method:'POST',
-    url:'api/migr',
-  }).then((response)=>{
-    console.log(response);
-    alert('Migraine Logged')
-    this.props.history.push('migraine')
-  }).catch((error)=>{
-    console.log(error);
-    alert('error logging migrain', error);
-  })
-}
+  capMigraine = () => {
+    axios({
+      method: 'POST',
+      url: 'api/migr',
+    }).then((response) => {
+      console.log(response);
+      alert('Migraine Logged')
+      this.props.history.push('migraine')
+    }).catch((error) => {
+      console.log(error);
+      alert('error logging migrain', error);
+    })
+  }
   render() {
     let content = null;
 
@@ -46,11 +46,11 @@ capMigraine=()=>{
           <h1
             id="welcome"
           >
-            Welcome, { this.props.user.userName }!
+            Welcome, {this.props.user.userName}!
           </h1>
-          <p>Your ID is: {this.props.user.id}</p>
-          <Button variant="contained" size="large" color="primary" onClick={this.capMigraine}>
-                Capture Migraine
+
+          <Button variant="contained" size="large" color="secondary" onClick={this.capMigraine}>
+            Capture Migraine
             </Button>
           <button
             onClick={this.logout}
@@ -64,7 +64,7 @@ capMigraine=()=>{
     return (
       <div>
         <Nav />
-        { content }
+        {content}
       </div>
     );
   }
@@ -72,4 +72,3 @@ capMigraine=()=>{
 
 // this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(UserPage);
-
