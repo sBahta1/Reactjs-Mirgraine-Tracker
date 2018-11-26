@@ -43,7 +43,7 @@ const appTheme = createMuiTheme({
     fontFamily:[
       'Vollkorn', 'serif'
     ]
-  }
+  },
 });
 
 const App = () => (

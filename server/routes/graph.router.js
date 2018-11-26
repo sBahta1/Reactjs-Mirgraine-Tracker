@@ -9,7 +9,8 @@ router.get('/', (req, res) => {
                         FROM "daily_checkin"
                         JOIN "user" 
                         ON "user"."id" = "daily_checkin"."user_id"
-                        WHERE "user"."id" = $1;`;
+                        WHERE "user"."id" = $1
+                        ORDER BY "date" ASC;`;
         pool.query(qText, [req.user.id]).then((results) => {
            console.log('Here', results.rows);
             res.send(results.rows);

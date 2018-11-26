@@ -18,13 +18,15 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ShowChart from '@material-ui/icons/ShowChart'
 import Home from '@material-ui/icons/Home';
 import LocalPharmacy from '@material-ui/icons/LocalPharmacy';
+import AssignmentTurnedIn from '@material-ui/icons/AssignmentTurnedIn';
+
 
 const styles = {
   root: {
     flexGrow: 1,
   },
   grow: {
-    flexGrow: 0.2,
+    flexGrow: 1,
   },
   menuButton: {
     marginLeft: -12,
@@ -65,32 +67,35 @@ class Nav extends Component {
     const sideList = (
       <Paper className={classes.list}>
         <MenuItem component={Link} to="/user">
-        <ListItemIcon className={classes.icon}>
+          <ListItemIcon className={classes.icon}>
             <Home />
           </ListItemIcon>
           Home
         </MenuItem>
         <Divider />
         <MenuItem button component={Link} to="/daily">
+          <ListItemIcon className={classes.icon}>
+            <AssignmentTurnedIn />
+          </ListItemIcon>
           Daily Check-in
         </MenuItem>
         <Divider />
         <MenuItem component={Link} to="/notes">
-        <ListItemIcon className={classes.icon}>
+          <ListItemIcon className={classes.icon}>
             <NoteAddIcon />
           </ListItemIcon>
           Note
         </MenuItem>
         <Divider />
         <MenuItem component={Link} to="/rx">
-        <ListItemIcon className={classes.icon}>
+          <ListItemIcon className={classes.icon}>
             <LocalPharmacy />
           </ListItemIcon>
           Medications
         </MenuItem>
         <Divider />
         <MenuItem component={Link} to="/graph" >
-        <ListItemIcon className={classes.icon}>
+          <ListItemIcon className={classes.icon}>
             <ShowChart />
           </ListItemIcon>
           Charts
@@ -102,10 +107,18 @@ class Nav extends Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton onClick={this.toggleDrawer('left', true)} className={classes.menuButton} color="inherit" aria-label="Menu">
+            <IconButton
+              onClick={this.toggleDrawer('left', true)}
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="Menu">
               <MenuIcon />
             </IconButton>
-            <Typography variant="title" color="inherit" className={classes.grow}>
+            <Typography
+              variant="title"
+              color="inherit"
+              className={classes.grow}
+            >
               Migraine Tracker
             </Typography>
             <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>

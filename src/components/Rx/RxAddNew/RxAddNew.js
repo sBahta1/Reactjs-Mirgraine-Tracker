@@ -110,7 +110,12 @@ class RxAddNew extends Component {
                 > */}
                         <Input
                             placeholder="Dosage"
-                            endAdornment={<InputAdornment position="end">Mg</InputAdornment>}
+                            endAdornment={
+                                <InputAdornment
+                                    position="end">
+                                    Mg
+                            </InputAdornment>
+                            }
                             // inputProps={{ 'aria-label': 'Weight', }}
                             onChange={this.handleDose}
                         />

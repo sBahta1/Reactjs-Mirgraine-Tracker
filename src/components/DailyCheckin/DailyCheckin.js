@@ -18,9 +18,9 @@ const styles = {
         justify: 'center',
         flexDirection: 'column',
         alignItems: 'center',
-        height:'600px'
+        height: '600px'
     },
-    button:{
+    button: {
         background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
         borderRadius: 3,
         border: 0,
@@ -48,7 +48,7 @@ class DailyCheckin extends Component {
             alert('Unable to add Daily Check-in')
         })
     }//end sendCheckin
-    
+
     render() {
         const { classes } = this.props;
         return (

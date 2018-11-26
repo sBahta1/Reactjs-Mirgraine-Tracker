@@ -23,14 +23,14 @@ const styles = theme => ({
     color: theme.palette.text.secondary,
   },
   button: {
-    right:0,
-    },
-    Panel:{
-      position:'relative',
-      display:'flex', 
-      flexDirection:'row', 
-      justifyContent:'space-between'
-    }
+    right: 0,
+  },
+  Panel: {
+    position: 'relative',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  }
 });
 
 class RxListItem extends Component {
@@ -38,7 +38,7 @@ class RxListItem extends Component {
     expanded: null,
   };
 
- 
+
 
   handleChange = panel => (event, expanded) => {
     this.setState({
@@ -52,14 +52,20 @@ class RxListItem extends Component {
 
     return (
       <div className={classes.root}>
-        <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
+        <ExpansionPanel
+          expanded={expanded === 'panel1'}
+          onChange={this.handleChange('panel1')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>{this.props.med.med_name}</Typography>
-            <Typography className={classes.secondaryHeading}>{this.props.med.symptom}</Typography>
+            <Typography className={classes.heading}>
+              {this.props.med.med_name}
+            </Typography>
+            <Typography className={classes.secondaryHeading}>
+              {this.props.med.symptom}
+            </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails className={classes.Panel}>
             <Typography>
-            {this.props.med.dose}Mg  ~  {this.props.med.regiment}
+              {this.props.med.dose}Mg  ~  {this.props.med.regiment}
             </Typography>
             <IconButton className={classes.button} aria-label="Delete">
               <DeleteIcon />

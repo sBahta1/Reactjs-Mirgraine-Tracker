@@ -10,6 +10,8 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+//import NavBottom from "../Nav/NavBottom";
+import Zoom from '@material-ui/core/Zoom';
 
 const styles = {
 
@@ -30,12 +32,15 @@ const styles = {
     }
 };
 class Notes extends Component {
+   
 
     componentDidMount() {
         this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
         this.getNotes();
     }
-
+    // toggleNotePad = () => {
+    //     this.setState(state =>({ clicked: !clicked }));
+    // }
     getNotes() {
         console.log('client getting');
         axios({
@@ -53,17 +58,22 @@ class Notes extends Component {
 
     render() {
         const { classes } = this.props;
+        // const { clicked } = this.state;
+
         return (
             <Paper>
                 <Nav />
                 <div className={classes.root}>
-                    <NotePad />
+                    {/* <Zoom in={clicked}> */}
+                        <NotePad />
+                    {/* </Zoom> */}
                     <div className={classes.container} >
-                        <NoteList ClassName={classes.noteList} />
+                        <NoteList  />
                     </div>
                     <Button variant="fab" mini className={classes.button} aria-label="Add" >
                         <AddIcon />
                     </Button>
+                    {/* <NavBottom /> */}
                 </div>
             </Paper>
         )

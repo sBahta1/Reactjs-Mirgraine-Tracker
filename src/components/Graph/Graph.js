@@ -63,9 +63,16 @@ class Chart extends Component {
                         backgroundColor: '#46E895',
                         fill: false,
                         borderWidth: '2px'
+                    },
+                    {
+                        label: 'Migraine',
+                        data: [0, 0, 0, 6, 0, 0, 0],
+                        borderColor: '#FFD32F',
+                        backgroundColor: '#FFD32F',
                     }
                 ]
             }
+
         })
     }
 
@@ -112,7 +119,6 @@ class Chart extends Component {
                     />
                 </div>
             </Paper>
-
         )
     }
 }//class

@@ -5,11 +5,31 @@ import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 import axios from 'axios';
-
+import Avatar from '@material-ui/core/Avatar';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 const mapStateToProps = state => ({
   user: state.user,
 });
-
+const styles = {
+  root: {
+    position: 'relative',
+    display: 'flex',
+    justify: 'center',
+    flexDirection: 'column',
+    alignItems: 'center',
+    height: '600px'
+},
+bigAvatar: {
+  
+  width: 100,
+  height: 100,
+},
+button: {
+  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
+}
+}
 class UserPage extends Component {
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
@@ -38,18 +58,22 @@ class UserPage extends Component {
     })
   }
   render() {
+    const { classes } = this.props;
     let content = null;
 
     if (this.props.user.userName) {
       content = (
-        <div>
+        <Paper className={classes.root}>
+ 
+          <Avatar className={classes.bigAvatar} src="images/0.jpeg" />
+        
           <h1
             id="welcome"
           >
             Welcome, {this.props.user.userName}!
           </h1>
 
-          <Button variant="contained" size="large" color="secondary" onClick={this.capMigraine}>
+          <Button variant="contained" size="large" className={classes.button} onClick={this.capMigraine}>
             Capture Migraine
             </Button>
           <button
@@ -57,7 +81,7 @@ class UserPage extends Component {
           >
             Log Out
           </button>
-        </div>
+        </Paper>
       );
     }
 
@@ -69,6 +93,9 @@ class UserPage extends Component {
     );
   }
 }
-
+UserPage.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+const userPageStyles = withStyles(styles)(UserPage)
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(UserPage);
+export default connect(mapStateToProps)(userPageStyles);

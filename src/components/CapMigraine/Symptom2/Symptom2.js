@@ -7,9 +7,16 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
+import Paper from '@material-ui/core/Paper';
 const styles = {
   root: {
     width: 300,
+    position:'relative',
+    display:'flex', 
+    justify:'center',
+    flexDirection:'column', 
+    alignItems:'center',
+    height: '600px'
   },
 };
 
@@ -50,7 +57,7 @@ class StepSlider extends Component {
     const { value } = this.state;
 
     return (
-      <div>
+      <Paper>
         <Nav />
         <div className={classes.root}>
           <br />
@@ -67,11 +74,12 @@ class StepSlider extends Component {
             variant="outlined"
             onChange={this.captureNote}
           />
-        </div>
-        <Button onClick={this.sendSeverity}>
+       
+        <Button onClick={this.sendSeverity} variant="outlined">
           Finish
         </Button>
-      </div>
+        </div>
+      </Paper>
     );
   }
 }

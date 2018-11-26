@@ -11,10 +11,12 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 const styles = {
   root: {
     // width: 500,
+    borderColor:'black',
+    flexGrow: 1,
   },
 };
 
-class NavigationBottom extends React.Component {
+class NavBottom extends React.Component {
   state = {
     value: 'recents',
   };
@@ -28,7 +30,7 @@ class NavigationBottom extends React.Component {
     const { value } = this.state;
 
     return (
-      <BottomNavigation value={value} onChange={this.handleChange} className={classes.root}>
+      <BottomNavigation position="static"  value={value} onChange={this.handleChange} className={classes.root}>
         <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
         <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
         <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
@@ -38,8 +40,8 @@ class NavigationBottom extends React.Component {
   }
 }
 
-NavigationBottom.propTypes = {
+NavBottom.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(NavigationBottom);
+export default withStyles(styles)(NavBottom);
