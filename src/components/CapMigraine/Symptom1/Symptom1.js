@@ -83,7 +83,9 @@ class Symptom1 extends Component {
                     <MigraineLocBody />
                 </div>
                 <div>
-                    <Button onClick={this.sendLocations} variant="outlined">
+                    <Button
+                        onClick={this.sendLocations}
+                        variant="outlined">
                         Next
                     </Button>
                 </div>

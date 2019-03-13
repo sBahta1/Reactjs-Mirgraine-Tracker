@@ -11,11 +11,11 @@ import Paper from '@material-ui/core/Paper';
 const styles = {
   root: {
     width: 300,
-    position:'relative',
-    display:'flex', 
-    justify:'center',
-    flexDirection:'column', 
-    alignItems:'center',
+    position: 'relative',
+    display: 'flex',
+    justify: 'center',
+    flexDirection: 'column',
+    alignItems: 'center',
     height: '600px'
   },
 };
@@ -62,7 +62,12 @@ class StepSlider extends Component {
         <div className={classes.root}>
           <br />
           <Typography id="label1">Severity</Typography>
-          <Slider value={value} aria-labelledby="label1" min={0} max={10} step={1} onChange={this.handleChange} />
+          <Slider
+            value={value}
+            aria-labelledby="label1"
+            min={0} max={10} step={1}
+            onChange={this.handleChange}
+          />
           <br />
           <TextField
             id="filled-multiline-static"
@@ -74,9 +79,9 @@ class StepSlider extends Component {
             variant="outlined"
             onChange={this.captureNote}
           />
-       
-        <Button onClick={this.sendSeverity} variant="outlined">
-          Finish
+
+          <Button onClick={this.sendSeverity} variant="outlined">
+            Finish
         </Button>
         </div>
       </Paper>

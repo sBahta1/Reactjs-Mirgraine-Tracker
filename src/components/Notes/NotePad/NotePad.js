@@ -76,14 +76,12 @@ class NotePad extends Component {
                     margin="normal"
                     variant="outlined"
                     onChange={this.captureNote}
-                    
                 />
                 <br />
                 <Button
                     variant="outlined"
                     className={classes.button}
                     onClick={this.saveNote}>
-
                     <DoneIcon />
                     Save Note
                 </Button>

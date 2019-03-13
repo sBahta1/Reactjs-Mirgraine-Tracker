@@ -9,11 +9,11 @@ import Typography from '@material-ui/core/Typography';
 const styles = {
   root: {
     width: 300,
-    position:'relative',
-    display:'flex', 
-    justify:'center',
-    flexDirection:'column', 
-    alignItems:'center'
+    position: 'relative',
+    display: 'flex',
+    justify: 'center',
+    flexDirection: 'column',
+    alignItems: 'center'
   },
 };
 
@@ -22,7 +22,7 @@ class StepSlider extends Component {
     mood: 5,
     hydro: 5,
     fitness: 5,
-    nutrition:5,
+    nutrition: 5,
   };
 
   handleMoodChange = (event, mood) => {
@@ -33,7 +33,7 @@ class StepSlider extends Component {
     };
     this.props.dispatch(action);
     console.log('slide mood', mood);
-    
+
   };
   handleHydroChange = (event, hydro) => {
     this.setState({ hydro });
@@ -70,18 +70,39 @@ class StepSlider extends Component {
     return (
       <div className={classes.root}>
         <Typography id="label1">Mood</Typography>
-        <Slider className={classes.track} value={this.state.mood} aria-labelledby="label1" min={0} max={10}  onChange={this.handleMoodChange}  />
+        <Slider
+          className={classes.track}
+          value={this.state.mood}
+          aria-labelledby="label1"
+          min={0} max={10} step={1}
+          onChange={this.handleMoodChange}
+        />
         <Divider />
         <Typography id="label2">Hydration</Typography>
-        <Slider value={this.state.hydro} aria-labelledby="label2" min={0} max={10} step={1} onChange={this.handleHydroChange} />
+        <Slider
+          value={this.state.hydro}
+          aria-labelledby="label2"
+          min={0} max={10} step={1}
+          onChange={this.handleHydroChange}
+        />
         <Divider />
         <Typography id="label3">Fitness</Typography>
-        <Slider value={this.state.fitness} aria-labelledby="label3" min={0} max={10} step={1} onChange={this.handleFitnessChange} />
+        <Slider
+          value={this.state.fitness}
+          aria-labelledby="label3"
+          min={0} max={10} step={1}
+          onChange={this.handleFitnessChange}
+        />
         <Divider />
         <Typography id="label4">Nutrition</Typography>
-        <Slider value={this.state.nutrition} aria-labelledby="label4" min={0} max={10} step={1} onChange={this.handleNutritionChange} />
+        <Slider
+          value={this.state.nutrition}
+          aria-labelledby="label4"
+          min={0} max={10} step={1}
+          onChange={this.handleNutritionChange}
+        />
         <Divider />
-       
+
       </div>
     );
   }

@@ -21,11 +21,7 @@ import Symptom1 from './components/CapMigraine/Symptom1/Symptom1';
 import Symptom2 from './components/CapMigraine/Symptom2/Symptom2';
 import './styles/main.css';
 import Nav from './components/Nav/Nav';
-import blueGrey from '@material-ui/core/colors/blueGrey';
-import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
-import teal from '@material-ui/core/colors/teal';
-import cyan from '@material-ui/core/colors/cyan';
 import { Typography } from '@material-ui/core';
 const appTheme = createMuiTheme({
   palette: {

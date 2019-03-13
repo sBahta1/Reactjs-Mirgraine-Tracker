@@ -30,7 +30,16 @@ const graphReducer = (state = sorted, action) => {
             medicationArr.push(row.medication)
             menstruatingArr.push(row.menstruating)
         }
-        return { ...state, date: dateArr, mood: moodArr, hydration: hydrationArr, fitness: fitnessArr, nutrition: nutritionArr, medication: medicationArr, menstruating: menstruatingArr }
+        return {
+            ...state,
+            date: dateArr,
+            mood: moodArr,
+            hydration: hydrationArr,
+            fitness: fitnessArr,
+            nutrition: nutritionArr,
+            medication: medicationArr,
+            menstruating: menstruatingArr
+        }
     };
     return state;
 };
