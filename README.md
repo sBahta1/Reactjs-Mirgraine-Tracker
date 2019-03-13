@@ -25,7 +25,7 @@ Database is done with PostgreSQL, it should be created and called **"migraine_tr
 
 ```
 
-DB Setup will be updated at the end of the project.
+See database.sql for table creation.
 
 ```
 
