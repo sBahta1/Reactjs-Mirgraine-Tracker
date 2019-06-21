@@ -5,6 +5,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Paper from '@material-ui/core/Paper';
 import Switch from '@material-ui/core/Switch';
 import { connect } from 'react-redux';
+
 class MigrianeLocHead extends Component {
     state = {
         temple_left: false,
