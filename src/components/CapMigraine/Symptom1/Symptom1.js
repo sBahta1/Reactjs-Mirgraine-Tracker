@@ -18,6 +18,7 @@ const mapStateToProps = state => ({
 
 class Symptom1 extends Component {
 
+    
     sendLocations = () => {
         let locationToSend = this.props.migraine.migraineLocation;
         console.log('click', locationToSend);
