@@ -54,7 +54,7 @@ class Rx extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <Paper>
+            <Paper style={{width:'375px'}}>
                 <Nav />
                 <div className={classes.root}>
                 

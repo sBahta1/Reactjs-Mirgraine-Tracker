@@ -13,7 +13,8 @@ const styles = {
         justify: 'space-between',
         flexDirection: 'column',
         alignItems: 'center',
-        height: '600px'
+        height: '600px',
+        width: '375px'
     },
     button: {
         background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -34,7 +35,7 @@ class CapMigraine extends Component {
         return (
             <div>
 
-                <Paper>
+                <Paper style={{width:'375px'}}>
                     <Nav />
                     <div className={classes.root}>
                         <Button

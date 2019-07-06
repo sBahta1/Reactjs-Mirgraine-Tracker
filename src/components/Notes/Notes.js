@@ -21,7 +21,8 @@ const styles = {
         justify: 'center',
         flexDirection: 'column',
         alignItems: 'center',
-        height: '600px'
+        height: '600px',
+        width:'375px'
     },
 
     container: {
@@ -61,7 +62,7 @@ class Notes extends Component {
         // const { clicked } = this.state;
 
         return (
-            <Paper>
+            <Paper style={{width:'375px'}}>
                 <Nav />
                 <div className={classes.root}>
                     {/* <Zoom in={clicked}> */}

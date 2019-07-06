@@ -18,7 +18,8 @@ const styles = {
         justify: 'center',
         flexDirection: 'column',
         alignItems: 'center',
-        height: '600px'
+        height: '600px',
+        width: '375px'
     },
     button: {
         background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -52,7 +53,7 @@ class DailyCheckin extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <Paper>
+            <Paper style={{width:'375px'}}>
                 <Nav />
                 <div className={classes.root}>
                     <h3>

@@ -24,6 +24,7 @@ import AssignmentTurnedIn from '@material-ui/icons/AssignmentTurnedIn';
 const styles = {
   root: {
     flexGrow: 1,
+    width: '375px'
   },
   grow: {
     flexGrow: 1,

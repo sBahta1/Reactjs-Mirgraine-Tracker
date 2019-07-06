@@ -10,11 +10,13 @@ import MigraineLocBody from '../MigraineLoc/MigraineLoc.Body';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
+import Paper from '@material-ui/core/Paper';
+
 const mapStateToProps = state => ({
     migraine: state.migraine
 })
 
-//const locationToSend = this.props.migraine.migrainelocation;
+
 
 class Symptom1 extends Component {
 
@@ -57,7 +59,7 @@ class Symptom1 extends Component {
     render() {
 
         return (
-            <div>
+            <div style={{height:'600px', width:'375px', overflow:'scroll'}}>
                 <Nav />
                 <List>
                     <ListItem button onClick={this.showHead}>
@@ -83,7 +85,7 @@ class Symptom1 extends Component {
                 <div hidden={this.state.body}>
                     <MigraineLocBody />
                 </div>
-                <div>
+                <div style={{right:'0', bottom:'0'}}>
                     <Button
                         onClick={this.sendLocations}
                         variant="outlined">

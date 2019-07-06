@@ -57,7 +57,7 @@ class StepSlider extends Component {
     const { value } = this.state;
 
     return (
-      <Paper>
+      <Paper style={{width:'375px'}}>
         <Nav />
         <div className={classes.root}>
           <br />

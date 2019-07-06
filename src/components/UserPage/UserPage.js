@@ -19,16 +19,16 @@ const styles = {
     justify: 'center',
     flexDirection: 'column',
     alignItems: 'center',
-    height: '600px'
-},
-bigAvatar: {
-  
-  width: 100,
-  height: 100,
-},
-button: {
-  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
-}
+    height: '600px',
+    width: '375px'
+  },
+  bigAvatar: {
+    width: 100,
+    height: 100,
+  },
+  button: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
+  }
 }
 class UserPage extends Component {
   componentDidMount() {
@@ -64,9 +64,9 @@ class UserPage extends Component {
     if (this.props.user.userName) {
       content = (
         <Paper className={classes.root}>
- 
-          <Avatar className={classes.bigAvatar} src="images/0.jpeg" />
-        
+
+          <Avatar className={classes.bigAvatar} src="images/blank-avatar.png" />
+
           <h1
             id="welcome"
           >
